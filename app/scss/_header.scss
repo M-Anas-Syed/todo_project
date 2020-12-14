@@ -1,0 +1,58 @@
+.header{
+    display: flex;
+    &__li{
+        position: relative;
+        justify-content: center;
+        align-content: center;
+        min-height: 12.5rem;
+        min-width: 375px;
+        background-repeat: no-repeat;
+        background-image: url("/images/bg-mobile-light.jpg");
+        background-position: top center;
+        background-size: cover;   
+    }
+
+    &__dk{
+        position: relative;
+        justify-content: center;
+        align-content: center;
+        min-height: 12.5rem;
+        min-width: 375px;
+        background-repeat: no-repeat;
+        background-image: url("/images/bg-mobile-dark.jpg");
+        background-position: top center;
+        background-size: cover; 
+    }
+
+
+    h1{
+        position: absolute;
+        font-size: 1.7rem;
+        text-align: left;
+        font-weight: 600;
+        color: white;
+        // padding-top: 45px;
+        // padding-left: 24px;
+        // padding-right: 240px;
+        margin: 0px;
+    }
+
+    .button{
+        background-image: url(/images/icon-moon.svg);
+        min-height: 1.7rem;
+        min-width: 1.7rem;
+        background-repeat: no-repeat;
+        float: right;
+        transition:  300ms ease-in-out;
+     }
+     
+     .switch{
+        background-image: url(/images/icon-sun.svg);
+        min-height: 1.7rem;
+        min-width: 1.7rem;
+        background-repeat: no-repeat;
+        float: right;
+     }
+
+    
+}

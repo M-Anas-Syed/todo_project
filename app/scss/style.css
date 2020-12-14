@@ -1,0 +1,124 @@
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 1.3;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  overflow: auto;
+  padding-left: 26px;
+  padding-right: 25px;
+  margin: 0 auto;
+}
+
+.container--pt {
+  padding-top: 49px;
+}
+
+.bgcolorli {
+  background-color: #fafafa;
+}
+
+.bgcolordk {
+  background-color: #161722;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__li {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  min-height: 12.5rem;
+  min-width: 375px;
+  background-repeat: no-repeat;
+  background-image: url("/images/bg-mobile-light.jpg");
+  background-position: top center;
+  background-size: cover;
+}
+
+.header__dk {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  min-height: 12.5rem;
+  min-width: 375px;
+  background-repeat: no-repeat;
+  background-image: url("/images/bg-mobile-dark.jpg");
+  background-position: top center;
+  background-size: cover;
+}
+
+.header h1 {
+  position: absolute;
+  font-size: 1.7rem;
+  text-align: left;
+  font-weight: 600;
+  color: white;
+  margin: 0px;
+}
+
+.header .button {
+  background-image: url(/images/icon-moon.svg);
+  min-height: 1.7rem;
+  min-width: 1.7rem;
+  background-repeat: no-repeat;
+  float: right;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+.header .switch {
+  background-image: url(/images/icon-sun.svg);
+  min-height: 1.7rem;
+  min-width: 1.7rem;
+  background-repeat: no-repeat;
+  float: right;
+}
+/*# sourceMappingURL=style.css.map */
