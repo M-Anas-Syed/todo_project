@@ -31,7 +31,6 @@ body{
 }
 
 .container{
-    overflow: auto;
     padding-left: 26px;
     padding-right: 25px;
     margin: 0 auto;
@@ -39,14 +38,26 @@ body{
         padding-top: 49px;
     }
 
+    @include breakpoint-up(medium){
+        overflow: auto;
+        padding-left: 450px;
+        padding-right: 450px;
+        margin: 0 auto;
+        &--pt{
+            padding-top: 78px;
+        }
+    }
+
 }
 
 .bgcolorli{
     background-color: $veryLightGray;
+    transition: background-color 250ms ease-in-out;
 }
 
 .bgcolordk{
     background-color: $veryDarkBlue;
+    transition: background-color 250ms ease-in-out;
 }
 
 // .hide-for-mobile{

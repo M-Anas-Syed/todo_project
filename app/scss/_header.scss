@@ -1,5 +1,6 @@
 .header{
     display: flex;
+    z-index: 1;
     &__li{
         position: relative;
         justify-content: center;
@@ -10,6 +11,18 @@
         background-image: url("/images/bg-mobile-light.jpg");
         background-position: top center;
         background-size: cover;   
+
+        @include breakpoint-up(medium){
+            position: relative;
+            justify-content: center;
+            align-content: center;
+            min-height: 300px;
+            min-width: 1440px;
+            background-repeat: no-repeat;
+            background-image: url("/images/bg-desktop-light.jpg");
+            background-position: top center;
+            background-size: cover;   
+        }
     }
 
     &__dk{
@@ -22,6 +35,18 @@
         background-image: url("/images/bg-mobile-dark.jpg");
         background-position: top center;
         background-size: cover; 
+
+        @include breakpoint-up(medium){
+            position: relative;
+            justify-content: center;
+            align-content: center;
+            min-height: 300px;
+            min-width: 1440px;
+            background-repeat: no-repeat;
+            background-image: url("/images/bg-desktop-dark.jpg");
+            background-position: top center;
+            background-size: cover;   
+        }
     }
 
 
@@ -31,10 +56,12 @@
         text-align: left;
         font-weight: 600;
         color: white;
-        // padding-top: 45px;
-        // padding-left: 24px;
-        // padding-right: 240px;
         margin: 0px;
+
+        @include breakpoint-up(medium){
+            font-size: 41px;
+            font-weight: 900;
+        }
     }
 
     .button{
@@ -43,7 +70,12 @@
         min-width: 1.7rem;
         background-repeat: no-repeat;
         float: right;
-        transition:  300ms ease-in-out;
+
+        @include breakpoint-up(medium){
+            min-height: 1.9rem;
+            min-width: 1.9rem;
+            margin-top:0.5rem;
+        }
      }
      
      .switch{
@@ -52,6 +84,12 @@
         min-width: 1.7rem;
         background-repeat: no-repeat;
         float: right;
+
+        @include breakpoint-up(medium){
+            min-height: 1.9rem;
+            min-width: 1.9rem;
+            margin-top:0.5rem;
+        }
      }
 
     

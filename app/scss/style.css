@@ -41,7 +41,6 @@ body {
 }
 
 .container {
-  overflow: auto;
   padding-left: 26px;
   padding-right: 25px;
   margin: 0 auto;
@@ -51,18 +50,35 @@ body {
   padding-top: 49px;
 }
 
+@media (min-width: 40em) {
+  .container {
+    overflow: auto;
+    padding-left: 450px;
+    padding-right: 450px;
+    margin: 0 auto;
+  }
+  .container--pt {
+    padding-top: 78px;
+  }
+}
+
 .bgcolorli {
   background-color: #fafafa;
+  -webkit-transition: background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 .bgcolordk {
   background-color: #161722;
+  -webkit-transition: background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 1;
 }
 
 .header__li {
@@ -80,6 +96,23 @@ body {
   background-size: cover;
 }
 
+@media (min-width: 40em) {
+  .header__li {
+    position: relative;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    min-height: 300px;
+    min-width: 1440px;
+    background-repeat: no-repeat;
+    background-image: url("/images/bg-desktop-light.jpg");
+    background-position: top center;
+    background-size: cover;
+  }
+}
+
 .header__dk {
   position: relative;
   -webkit-box-pack: center;
@@ -95,6 +128,23 @@ body {
   background-size: cover;
 }
 
+@media (min-width: 40em) {
+  .header__dk {
+    position: relative;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    min-height: 300px;
+    min-width: 1440px;
+    background-repeat: no-repeat;
+    background-image: url("/images/bg-desktop-dark.jpg");
+    background-position: top center;
+    background-size: cover;
+  }
+}
+
 .header h1 {
   position: absolute;
   font-size: 1.7rem;
@@ -104,14 +154,27 @@ body {
   margin: 0px;
 }
 
+@media (min-width: 40em) {
+  .header h1 {
+    font-size: 41px;
+    font-weight: 900;
+  }
+}
+
 .header .button {
   background-image: url(/images/icon-moon.svg);
   min-height: 1.7rem;
   min-width: 1.7rem;
   background-repeat: no-repeat;
   float: right;
-  -webkit-transition: 300ms ease-in-out;
-  transition: 300ms ease-in-out;
+}
+
+@media (min-width: 40em) {
+  .header .button {
+    min-height: 1.9rem;
+    min-width: 1.9rem;
+    margin-top: 0.5rem;
+  }
 }
 
 .header .switch {
@@ -120,5 +183,90 @@ body {
   min-width: 1.7rem;
   background-repeat: no-repeat;
   float: right;
+}
+
+@media (min-width: 40em) {
+  .header .switch {
+    min-height: 1.9rem;
+    min-width: 1.9rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.lists {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  top: 173px;
+}
+
+.lists__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.lists__cards {
+  position: relative;
+  background-color: white;
+}
+
+.lists__cards:not(:last-child) {
+  border-bottom: 1px solid #cacde8;
+}
+
+.lists__listitems {
+  overflow: hidden;
+  padding-top: 19px;
+  padding-bottom: 22px;
+  padding-left: 52px;
+  font-size: 14px;
+  color: #393a4c;
+}
+
+.lists__listinfo {
+  background-color: white;
+  border-top: 1px solid #cacde8;
+  padding-top: 19px;
+  padding-left: 21px;
+  padding-right: 21px;
+  padding-bottom: 21px;
+  overflow: hidden;
+}
+
+.lists__listinfo p {
+  position: absolute;
+  margin: 0px;
+  color: #777a92;
+  font-size: 14px;
+}
+
+.lists__listinfo a {
+  color: #777a92;
+  text-decoration: none;
+  font-size: 14px;
+  float: right;
+}
+
+.lists__circle {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #e4e5f1;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 17px;
+}
+
+.lists__bs {
+  overflow: hidden;
+  -webkit-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 /*# sourceMappingURL=style.css.map */
