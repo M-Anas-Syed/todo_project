@@ -52,7 +52,6 @@ body {
 
 @media (min-width: 40em) {
   .container {
-    overflow: auto;
     padding-left: 450px;
     padding-right: 450px;
     margin: 0 auto;
@@ -72,6 +71,40 @@ body {
   background-color: #161722;
   -webkit-transition: background-color 250ms ease-in-out;
   transition: background-color 250ms ease-in-out;
+}
+
+.bgboxcolourli {
+  color: #393a4c;
+  background-color: white;
+  -webkit-transition: background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
+}
+
+.bgboxcolourli:not(:last-child) {
+  border-bottom: 1px solid #d2d3db;
+}
+
+.bgboxcolourdk {
+  color: #d2d3db;
+  background-color: #25273c;
+  -webkit-transition: background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
+}
+
+.bgboxcolourdk:not(:last-child) {
+  border-bottom: 1px solid #393a4c;
+}
+
+@media (max-width: 63.9375em) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hide-for-desktop {
+    display: none;
+  }
 }
 
 .header {
@@ -207,27 +240,16 @@ body {
       grid-template-columns: 1fr;
 }
 
-.lists__cards {
-  position: relative;
-  background-color: white;
-}
-
-.lists__cards:not(:last-child) {
-  border-bottom: 1px solid #cacde8;
-}
-
 .lists__listitems {
   overflow: hidden;
   padding-top: 19px;
   padding-bottom: 22px;
   padding-left: 52px;
   font-size: 14px;
-  color: #393a4c;
 }
 
 .lists__listinfo {
-  background-color: white;
-  border-top: 1px solid #cacde8;
+  border-top: 1px solid #d2d3db;
   padding-top: 19px;
   padding-left: 21px;
   padding-right: 21px;
@@ -238,22 +260,61 @@ body {
 .lists__listinfo p {
   position: absolute;
   margin: 0px;
-  color: #777a92;
-  font-size: 14px;
+  color: #9394a5;
+  font-size: 13px;
 }
 
-.lists__listinfo a {
+.lists__listinfo .cc {
+  color: #9394a5;
+  text-decoration: none;
+  font-size: 13px;
+  float: right;
+}
+
+.lists .all {
   color: #777a92;
   text-decoration: none;
-  font-size: 14px;
-  float: right;
+  font-size: 15px;
+  padding-left: 164px;
+}
+
+@media (max-width: 63.9375em) {
+  .lists .all {
+    padding-left: 81px;
+  }
+}
+
+.lists .active {
+  color: #777a92;
+  text-decoration: none;
+  font-size: 15px;
+  padding-left: 17px;
+}
+
+.lists .completed {
+  color: #777a92;
+  text-decoration: none;
+  font-size: 15px;
+  padding-left: 16px;
+}
+
+.lists .options {
+  margin-top: 16px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding-top: 17px;
+  padding-bottom: 16px;
 }
 
 .lists__circle {
   height: 20px;
   width: 20px;
   border: 1px solid #e4e5f1;
-  background-color: white;
   border-radius: 50%;
   position: absolute;
   margin-left: 20px;
@@ -268,5 +329,24 @@ body {
   border-bottom-right-radius: 6px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+}
+
+.lists .check {
+  background-image: url("/images/icon-check.svg");
+  margin-left: 4px;
+  margin-top: 5px;
+  min-width: 11px;
+  position: absolute;
+  z-index: 2;
+  min-height: 9px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.lists .bgcolour {
+  background: -webkit-gradient(linear, left top, right top, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to right, #57ddff, #c058f3);
+  position: absolute;
+  z-index: 1;
 }
 /*# sourceMappingURL=style.css.map */

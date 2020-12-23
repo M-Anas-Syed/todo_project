@@ -12,6 +12,7 @@ body{
     padding: 0;
     font-family: 'Josefin Sans', sans-serif;
     line-height: 1.3;
+    //font-weight: 400;
 }
 
 .flex{
@@ -39,7 +40,6 @@ body{
     }
 
     @include breakpoint-up(medium){
-        overflow: auto;
         padding-left: 450px;
         padding-right: 450px;
         margin: 0 auto;
@@ -60,14 +60,40 @@ body{
     transition: background-color 250ms ease-in-out;
 }
 
-// .hide-for-mobile{
-//     @include breakpoint-down(medium){
-//         display: none; 
-//     }
+.bgboxcolourli{
+    color: $veryDarkGrayishBlue; 
+    background-color:white;
+    transition: background-color 250ms ease-in-out;
+    &:not(:last-child){
+        border-bottom: 1px solid $lightGrayishBlue;
+    }
+}
+
+.bgboxcolourdk{
+    color: $lightGrayishBlue;
+    background-color:$veryDarkDesaturatedBlue;
+    transition: background-color 250ms ease-in-out;
+    &:not(:last-child){
+        border-bottom: 1px solid $veryDarkGrayishBlue;
+    }
+}
+
+// .fontcolourli{
+//     color: $veryDarkGrayishBlue; 
 // }
 
-// .hide-for-desktop{
-//     @include breakpoint-up(large){
-//         display: none; 
-//     }
+// .fontcolourdk{
+//     color: $lightGrayishBlue;
 // }
+
+ .hide-for-mobile{
+     @include breakpoint-down(medium){
+         display: none; 
+     }
+ }
+
+ .hide-for-desktop{
+     @include breakpoint-up(large){
+         display: none; 
+     }
+ }
