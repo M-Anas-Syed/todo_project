@@ -7,7 +7,10 @@ const listinfo = document.querySelector('.lists__listinfo');
 const options = document.querySelector('.options');
 const listitems = document.querySelector('.lists__listitems');
 const check = document.querySelector('#check');
-
+const lc = document.querySelector('.lists__circle');
+const comp = document.querySelector('.cc');
+const act = document.querySelector('.active');
+const lg = document.querySelector('.lists__grid');
 
 theme.addEventListener('click', function(){
     if(theme.classList.contains('switch')){
@@ -37,6 +40,12 @@ function getClassDescendants(parent,child) {
 const x = getDescendantElements(list,'a');
 const p = getClassDescendants(list,'check');
 //const n = getDescendantElements(a,'div');
+function getCards(parent,child) {
+	return [].slice.call(parent.getElementsByClassName(child));
+}
+
+const cards = getCards(list,'bgboxcolourli');
+const items = getCards(list,'lists__listitems');
 
 for(let i of x){
     const n = i.getElementsByTagName('div');
@@ -48,21 +57,60 @@ for(let i of x){
             i.classList.add('bgcolour');
             n[0].classList.add('check');
         }
-    });
-    
-    // if(n[0].classList.contains('check')){
+        if(i.classList.contains('bgcolour')){
+            listitems.classList.add('completed_task');
+        }else{
+            listitems.classList.remove('completed_task');
+        }
         
-    // }    
-    
+    });
+}
+const z = getCards(list,'bgboxcolourli');
+comp.addEventListener('click', function(){
+    for(let b of x){
+        const parent = b.parentElement;
+        if(b.classList.contains('bgcolour')){
+            parent.remove();
+        }
+    }
+})
+
+const d = getDescendantElements(lg, 'a');
+for(let elem of d){
+    if(elem.classList.contains('active')){
+        elem.addEventListener('click', function(){
+            for(let a of x){
+                const parent = a.parentElement;
+                if(a.classList.contains('bgcolour')){
+                    parent.style.display = 'none';
+                }else{
+                    parent.style.display = 'block';
+                }
+            }
+        });
+    }
+    if(elem.classList.contains('completed')){
+        elem.addEventListener('click', function(){
+            for(let a of x){
+                const parent = a.parentElement;
+                if(!a.classList.contains('bgcolour')){
+                    parent.style.display = 'none';
+                }else{
+                    parent.style.display = 'block';
+                }
+            }
+        });
+    }
+    if(elem.classList.contains('all')){
+        elem.addEventListener('click', function(){
+            for(let h of x){
+                const parent = h.parentElement;
+                parent.style.display = 'block';
+            }
+        })
+    }
 }
 
-
-function getCards(parent,child) {
-	return [].slice.call(parent.getElementsByClassName(child));
-}
-
-const cards = getCards(list,'bgboxcolourli');
-const items = getCards(list,'lists__listitems');
 
 theme.addEventListener('click', function(){
     for(let i of cards){

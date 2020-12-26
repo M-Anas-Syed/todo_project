@@ -125,5 +125,9 @@
         position: absolute;
         z-index: 1;
     }
+
+    .completed_task{
+        text-decoration: line-through;
+    }
 }
 

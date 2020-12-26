@@ -349,4 +349,8 @@ body {
   position: absolute;
   z-index: 1;
 }
+
+.lists .completed_task {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=style.css.map */
