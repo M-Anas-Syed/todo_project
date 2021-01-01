@@ -11,6 +11,9 @@ const lc = document.querySelector('.lists__circle');
 const comp = document.querySelector('.cc');
 const act = document.querySelector('.active');
 const lg = document.querySelector('.lists__grid');
+const add = document.querySelector('.add');
+const create = document.querySelector('.create');
+const ct = document.querySelector('#createtodo');
 
 theme.addEventListener('click', function(){
     if(theme.classList.contains('switch')){
@@ -37,7 +40,7 @@ function getClassDescendants(parent,child) {
 	return [].slice.call(document.getElementById(child));
 }
 
-const x = getDescendantElements(list,'a');
+let x = getDescendantElements(list,'a');
 const p = getClassDescendants(list,'check');
 //const n = getDescendantElements(a,'div');
 function getCards(parent,child) {
@@ -46,25 +49,35 @@ function getCards(parent,child) {
 
 const cards = getCards(list,'bgboxcolourli');
 const items = getCards(list,'lists__listitems');
-
-for(let i of x){
-    const n = i.getElementsByTagName('div');
-    i.addEventListener('click', function(){
-        if (i.classList.contains('bgcolour')){
-            i.classList.remove('bgcolour');
-            n[0].classList.remove('check');
-        }else{
-            i.classList.add('bgcolour');
-            n[0].classList.add('check');
-        }
-        if(i.classList.contains('bgcolour')){
-            listitems.classList.add('completed_task');
-        }else{
-            listitems.classList.remove('completed_task');
-        }
+// for(let i of x){
+//     const n = i.getElementsByTagName('div');
+//     i.addEventListener('click', function(){
+//         if (i.classList.contains('bgcolour')){
+//             i.classList.remove('bgcolour');
+//             n[0].classList.remove('check');
+//         }else{
+//             i.classList.add('bgcolour');
+//             n[0].classList.add('check');
+//         }
+//         // if(i.classList.contains('bgcolour')){
+//         //     listitems.classList.add('completed_task');
+//         // }else{
+//         //     listitems.classList.remove('completed_task');
+//         // }
         
-    });
-}
+//     });
+// }
+
+list.addEventListener('click',function(env){
+    if(env.target.classList.contains('lists__circle')){
+        env.target.classList.add('bgcolour');
+        env.target.children[0].classList.add('check');
+    } else if(env.target.id == 'check'){
+        env.target.parentElement.classList.remove('bgcolour');
+        env.target.classList.remove('check');
+    }
+})
+
 const z = getCards(list,'bgboxcolourli');
 comp.addEventListener('click', function(){
     for(let b of x){
@@ -136,17 +149,23 @@ theme.addEventListener('click', function(){
         listinfo.classList.add('bgboxcolourdk');
         options.classList.remove('bgboxcolourli');
         options.classList.add('bgboxcolourdk');
+        add.classList.remove('bgboxcolourli');
+        add.classList.add('bgboxcolourdk');
+        create.classList.remove('bgboxcolourli');
+        create.classList.add('bgboxcolourdk');
+
     } else{
         listinfo.classList.remove('bgboxcolourdk');
         listinfo.classList.add('bgboxcolourli');
         options.classList.remove('bgboxcolourdk');
         options.classList.add('bgboxcolourli');
+        add.classList.remove('bgboxcolourdk');
+        add.classList.add('bgboxcolourli');
+        create.classList.remove('bgboxcolourdk');
+        create.classList.add('bgboxcolourli');
     }
     
 })
-
-
-
 
 function fadeOut(element) {
     var opacity = 1;
@@ -184,3 +203,28 @@ theme.addEventListener('click', function(){
     fadeIn(theme);
     fadeIn(background);
 });
+
+function addtodo(v){
+    const elem = document.createElement('div');
+    const link = document.createElement('a');
+    const symbol = document.createElement('div');
+    const text = document.createElement('div');
+
+    elem.classList.add('bgboxcolourli');
+    link.setAttribute('href','#');
+    link.classList.add('lists__circle');
+    symbol.setAttribute('id', 'check');
+    text.classList.add('lists__listitems');
+
+    text.innerHTML = v;
+
+    link.appendChild(symbol);
+    elem.appendChild(link);
+    elem.appendChild(text);
+    document.getElementById('list').appendChild(elem);
+}
+
+ct.addEventListener('click', function(){
+    const inputVal = document.getElementsByClassName('create');
+    addtodo(inputVal[0].value);
+})
