@@ -14,6 +14,53 @@ const lg = document.querySelector('.lists__grid');
 const add = document.querySelector('.add');
 const create = document.querySelector('.create');
 const ct = document.querySelector('#createtodo');
+const bs = document.querySelector('.lists__bs');
+
+
+function getDescendantElements(parent,child) {
+	return [].slice.call(parent.getElementsByTagName(child));
+}
+function getClassDescendants(child) {
+	return [].slice.call(document.getElementById(child));
+}
+function getCards(parent,child) {
+	return [].slice.call(parent.getElementsByClassName(child));
+}
+
+let x = getDescendantElements(list,'a');
+
+const d = getDescendantElements(lg, 'a');
+
+function addtodo(v){
+    const elem = document.createElement('div');
+    const link = document.createElement('a');
+    const symbol = document.createElement('div');
+    const text = document.createElement('div');
+
+    
+    if (theme.classList.contains('switch')){
+        elem.classList.add('bgboxcolourdk');
+    }else{
+        elem.classList.add('bgboxcolourli');
+    }
+    
+    link.setAttribute('href','#');
+    link.classList.add('lists__circle');
+    symbol.setAttribute('id', 'check');
+    text.classList.add('lists__listitems');
+
+    text.innerHTML = v;
+
+    link.appendChild(symbol);
+    elem.appendChild(link);
+    elem.appendChild(text);
+    document.getElementById('list').appendChild(elem);
+}
+
+ct.addEventListener('click', function(){
+    const inputVal = document.getElementsByClassName('create');
+    addtodo(inputVal[0].value);
+})
 
 theme.addEventListener('click', function(){
     if(theme.classList.contains('switch')){
@@ -33,40 +80,6 @@ theme.addEventListener('click', function(){
     }
 });
 
-function getDescendantElements(parent,child) {
-	return [].slice.call(parent.getElementsByTagName(child));
-}
-function getClassDescendants(parent,child) {
-	return [].slice.call(document.getElementById(child));
-}
-
-let x = getDescendantElements(list,'a');
-const p = getClassDescendants(list,'check');
-//const n = getDescendantElements(a,'div');
-function getCards(parent,child) {
-	return [].slice.call(parent.getElementsByClassName(child));
-}
-
-const cards = getCards(list,'bgboxcolourli');
-const items = getCards(list,'lists__listitems');
-// for(let i of x){
-//     const n = i.getElementsByTagName('div');
-//     i.addEventListener('click', function(){
-//         if (i.classList.contains('bgcolour')){
-//             i.classList.remove('bgcolour');
-//             n[0].classList.remove('check');
-//         }else{
-//             i.classList.add('bgcolour');
-//             n[0].classList.add('check');
-//         }
-//         // if(i.classList.contains('bgcolour')){
-//         //     listitems.classList.add('completed_task');
-//         // }else{
-//         //     listitems.classList.remove('completed_task');
-//         // }
-        
-//     });
-// }
 
 list.addEventListener('click',function(env){
     if(env.target.classList.contains('lists__circle')){
@@ -76,74 +89,83 @@ list.addEventListener('click',function(env){
         env.target.parentElement.classList.remove('bgcolour');
         env.target.classList.remove('check');
     }
-})
 
-const z = getCards(list,'bgboxcolourli');
-comp.addEventListener('click', function(){
-    for(let b of x){
-        const parent = b.parentElement;
-        if(b.classList.contains('bgcolour')){
-            parent.remove();
+    comp.addEventListener('click', function(){
+        if(env.target.classList.contains('bgcolour')){
+            env.target.parentElement.remove();
         }
-    }
+    })
 })
 
-const d = getDescendantElements(lg, 'a');
+
 for(let elem of d){
     if(elem.classList.contains('active')){
         elem.addEventListener('click', function(){
-            for(let a of x){
-                const parent = a.parentElement;
-                if(a.classList.contains('bgcolour')){
-                    parent.style.display = 'none';
+            let actsign = getDescendantElements(list,'a');
+            for(let i of actsign){
+                if(i.classList.contains('bgcolour')){
+                    i.parentElement.style.display = 'none';
                 }else{
-                    parent.style.display = 'block';
+                    i.parentElement.style.display = 'block';
                 }
             }
         });
-    }
+    } 
     if(elem.classList.contains('completed')){
         elem.addEventListener('click', function(){
-            for(let a of x){
-                const parent = a.parentElement;
-                if(!a.classList.contains('bgcolour')){
-                    parent.style.display = 'none';
-                }else{
-                    parent.style.display = 'block';
-                }
-            }
+            let compsign = getDescendantElements(list,'a');
+            for(let j of compsign){
+                if(!j.classList.contains('bgcolour')){
+                    j.parentElement.style.display = 'none';
+                }  else{
+                    j.parentElement.style.display = 'block';
+                } 
+            }  
         });
     }
     if(elem.classList.contains('all')){
         elem.addEventListener('click', function(){
-            for(let h of x){
-                const parent = h.parentElement;
-                parent.style.display = 'block';
+            let allsign = getDescendantElements(list,'a');
+            for(let s of allsign){
+                s.parentElement.style.display = 'block';
             }
         })
     }
 }
 
-
 theme.addEventListener('click', function(){
-    for(let i of cards){
-        if(i.classList.contains('bgboxcolourli')){
-            i.classList.remove('bgboxcolourli');
-            i.classList.add('bgboxcolourdk');
-        }else{
-            i.classList.remove('bgboxcolourdk');
-            i.classList.add('bgboxcolourli');
+    if(theme.classList.contains('switch')){
+        let cards = getCards(list,'bgboxcolourli');
+        let items = getCards(list,'lists__listitems');
+        for(let i of cards){
+            if(i.classList.contains('bgboxcolourli')){
+                i.classList.remove('bgboxcolourli');
+                i.classList.add('bgboxcolourdk');
+            }
         }
-    }
-    for(let b of items){
-        if(b.classList.contains('fontcolourli')){
-            b.classList.remove('fontcolourli');
-            b.classList.add('fontcolourdk');
-        }else{
-            b.classList.remove('fontcolourdk');
-            b.classList.add('fontcolourli');
+        for(let b of items){
+            if(b.classList.contains('fontcolourli')){
+                b.classList.remove('fontcolourli');
+                b.classList.add('fontcolourdk');
+            }
+        } 
+    }else if(theme.classList.contains('button')){
+        let cards = getCards(list,'bgboxcolourdk');
+        let items = getCards(list,'lists__listitems');
+        for(let i of cards){
+            if(i.classList.contains('bgboxcolourdk')){
+                i.classList.remove('bgboxcolourdk');
+                i.classList.add('bgboxcolourli');
+            }
         }
+        for(let b of items){
+            if(b.classList.contains('fontcolourdk')){
+                b.classList.remove('fontcolourdk');
+                b.classList.add('fontcolourli');
+            }
+        } 
     }
+    
     if(listinfo.classList.contains('bgboxcolourli')){
         listinfo.classList.remove('bgboxcolourli');
         listinfo.classList.add('bgboxcolourdk');
@@ -153,7 +175,7 @@ theme.addEventListener('click', function(){
         add.classList.add('bgboxcolourdk');
         create.classList.remove('bgboxcolourli');
         create.classList.add('bgboxcolourdk');
-
+        listinfo.style.borderColor = "hsl(237, 14%, 26%)";
     } else{
         listinfo.classList.remove('bgboxcolourdk');
         listinfo.classList.add('bgboxcolourli');
@@ -163,9 +185,11 @@ theme.addEventListener('click', function(){
         add.classList.add('bgboxcolourli');
         create.classList.remove('bgboxcolourdk');
         create.classList.add('bgboxcolourli');
+        listinfo.style.borderColor = "hsl(233, 11%, 84%)";
     }
+
     
-})
+}) 
 
 function fadeOut(element) {
     var opacity = 1;
@@ -196,7 +220,6 @@ function fadeIn(element) {
     increase();
 }
 
-
 theme.addEventListener('click', function(){
     fadeOut(theme);
     fadeOut(background);
@@ -204,27 +227,3 @@ theme.addEventListener('click', function(){
     fadeIn(background);
 });
 
-function addtodo(v){
-    const elem = document.createElement('div');
-    const link = document.createElement('a');
-    const symbol = document.createElement('div');
-    const text = document.createElement('div');
-
-    elem.classList.add('bgboxcolourli');
-    link.setAttribute('href','#');
-    link.classList.add('lists__circle');
-    symbol.setAttribute('id', 'check');
-    text.classList.add('lists__listitems');
-
-    text.innerHTML = v;
-
-    link.appendChild(symbol);
-    elem.appendChild(link);
-    elem.appendChild(text);
-    document.getElementById('list').appendChild(elem);
-}
-
-ct.addEventListener('click', function(){
-    const inputVal = document.getElementsByClassName('create');
-    addtodo(inputVal[0].value);
-})

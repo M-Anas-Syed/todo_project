@@ -233,6 +233,12 @@ body {
   top: 108px;
 }
 
+@media (min-width: 40em) {
+  .lists {
+    top: 158px;
+  }
+}
+
 .lists__grid {
   display: -ms-grid;
   display: grid;

@@ -3,6 +3,10 @@
     width: 100%;
     z-index: 3;
     top: 108px;
+
+    @include breakpoint-up(medium){
+        top: 158px;
+    }
     
     &__grid{
         display: grid;
