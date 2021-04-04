@@ -85,9 +85,11 @@ list.addEventListener('click',function(env){
     if(env.target.classList.contains('lists__circle')){
         env.target.classList.add('bgcolour');
         env.target.children[0].classList.add('check');
+        env.target.parentElement.children[1].classList.add('completed_task');
     } else if(env.target.id == 'check'){
         env.target.parentElement.classList.remove('bgcolour');
         env.target.classList.remove('check');
+        env.target.parentElement.parentElement.children[1].classList.remove('completed_task');
     }
 
     comp.addEventListener('click', function(){
