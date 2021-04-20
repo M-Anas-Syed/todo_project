@@ -122,7 +122,7 @@ body {
   -ms-flex-line-pack: center;
       align-content: center;
   min-height: 12.5rem;
-  min-width: 375px;
+  min-width: 100vw;
   background-repeat: no-repeat;
   background-image: url("/images/bg-mobile-light.jpg");
   background-position: top center;
@@ -154,7 +154,7 @@ body {
   -ms-flex-line-pack: center;
       align-content: center;
   min-height: 12.5rem;
-  min-width: 375px;
+  min-width: 100vw;
   background-repeat: no-repeat;
   background-image: url("/images/bg-mobile-dark.jpg");
   background-position: top center;
