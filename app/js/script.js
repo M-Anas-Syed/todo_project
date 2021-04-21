@@ -28,7 +28,6 @@ function getCards(parent,child) {
 }
 
 let x = getDescendantElements(list,'a');
-
 const d = getDescendantElements(lg, 'a');
 
 function addtodo(v){
@@ -189,8 +188,6 @@ theme.addEventListener('click', function(){
         create.classList.add('bgboxcolourli');
         listinfo.style.borderColor = "hsl(233, 11%, 84%)";
     }
-
-    
 }) 
 
 function fadeOut(element) {

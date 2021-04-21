@@ -3,6 +3,7 @@
     width: 100%;
     z-index: 3;
     top: 108px;
+    min-height: 90vh;
 
     @include breakpoint-up(medium){
         top: 158px;

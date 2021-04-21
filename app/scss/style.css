@@ -231,6 +231,7 @@ body {
   width: 100%;
   z-index: 3;
   top: 108px;
+  min-height: 90vh;
 }
 
 @media (min-width: 40em) {
